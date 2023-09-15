@@ -1,0 +1,91 @@
+<%- include('../shared/header_cadastro') %>
+
+<div class="container-cadastro">
+  <div class="content-box">
+      <div class="login-logo">
+        <a href="/">
+          <img src="/img/Logo_header.png" alt="">
+        </a>
+      </div>
+      <div class="form-box">
+        <div>
+          <h2>Bem-vindo</h2>
+          <p>Crie agora mesmo sua conta e solicite o serviço desejado....</p>
+        </div>
+
+        <form action="/usuarios/cadastrar" method="post">
+          <div class="row">
+            <div class="input-box col-md-6">
+              <input type="text" placeholder="Nome" name="nome" class="form-control">
+            </div>
+            <div class="input-box col-md-2">
+              <input type="text" placeholder="CPF" name="cpf" class="form-control">
+            </div>
+            <div class="input-box col-md-4">
+              <input type="text" placeholder="Data de Nascimento" name="dataNascimento" class="form-control">
+            </div>
+          </div>
+          <div class="row">
+            <div class="input-box col-md-3">
+              <input type="text" placeholder="Endereco" name="endereco" class="form-control">
+            </div>
+            <div class="input-box col-md-2">
+              <input type="text" placeholder="N°" name="numero" class="form-control">
+            </div>
+            <div class="input-box col-md-2">
+              <input type="text" placeholder="CEP" name="cep" class="form-control">
+            </div>
+            <div class="input-box col-md-2">
+              <input type="text" placeholder="DDD" name="ddd" class="form-control">
+            </div>
+            <div class="input-box col-md-3">
+              <input type="text" placeholder="Celular" name="celular" class="form-control">
+            </div>
+          </div>
+          <hr>
+          <div class="row">
+            <div class="input-box col-md-6">
+              <input type="text" placeholder="E-mail" name="login" class="form-control">
+            </div>
+          </div>
+          <div class="row">
+            <div class="input-box col-md-6">
+              <input type="password" placeholder="Senha" name="senha" class="form-control">
+            </div>
+            <div class="input-box col-md-6">
+              <input type="password" placeholder="Confirmar Senha" name="senhaConfirm" class="form-control">
+            </div>
+          </div>
+          <hr>
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="" id="declaracao">
+            <label class="form-check-label" for="flexCheckDefault">
+              Declaro, para os devidos fins e efeitos legais, serem pessoais e verdadeiras as informações inseridas no
+              cadastro, sobre as quais assumo todas as responsabilidades, sob pena de incorrer nas sanções previstas nos
+              artigos 299 e 307 do Código Penal (falsidade ideológica e falsa identidade).
+            </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="" id="autorizar">
+            <label class="form-check-label" for="flexCheckDefault">
+              Autorizo receber atualizações sobre minhas solicitações via e-mail e SMS.
+            </label>
+          </div>
+          
+          <div class="btn-cadastro">
+            <input type="submit" value="CRIAR" />  
+          </div>
+          
+        </form>
+      </div>
+  </div>
+  <div class="img-box">
+      <!-- <img src="img/imagem_fundo_asfalto.png"> -->
+      <div class="quem-somos">
+        <button>Quem somos?</button>
+        <p>
+          Criado em parceria com o governo federal para melhorar a infraestrutura viária de forma colaborativa e eficaz.
+        </p>
+      </div>
+  </div>
+</div>

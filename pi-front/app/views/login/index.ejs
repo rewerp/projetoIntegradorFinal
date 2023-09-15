@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Login</title>
+  <link rel="stylesheet" href="/stylesheets/style.css">
+  <link rel="stylesheet" href="/stylesheets/login.css">
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+</head>
+
+<!-- TELA DE LOGIN -->
+
+<body>
+  <div class="container-login">
+
+    <div class="content-box">
+      <div class="login-logo">
+        <a href="/">
+          <img src="/img/Logo_header.png" alt="">
+        </a>
+      </div>
+      <div class="form-box">
+        <div>
+          <h2>Bem-vindo</h2>
+          <p>Criei sua conta ou acesse uma já existe...</p>
+          <a href="/cadastro" type="button" class="btn-cadastro">Criar Conta</a>
+        </div>
+
+        <p>Ou continue com seu acesso</p>
+        <form action="/login" method="post">
+          <div class="input-box">
+            <input type="text" placeholder="E-mail" name="login">
+          </div>
+          <div class="input-box">
+            <input type="password" placeholder="Senha" name="senha">
+          </div>
+          <div class="remember">
+            <a href="#">Esqueceu a Senha?</a>
+          </div>
+          <div class="input-box">
+            <input type="submit" value="Acessar">
+          </div>
+          <% if (erro) { %>
+            <div class="alert alert-danger mt-5" role="alert">
+              <%= erro %>
+            </div>
+          <% } %>
+        </form>
+      </div>
+    </div>
+    <div class="img-box">
+      <!-- <img src="img/imagem_fundo_asfalto.png"> -->
+      <div class="quem-somos">
+        <button>Quem somos?</button>
+        <p>
+          Criado em parceria com o governo federal para melhorar a infraestrutura viária de forma colaborativa e eficaz.
+        </p>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

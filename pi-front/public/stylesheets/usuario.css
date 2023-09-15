@@ -1,0 +1,338 @@
+html,
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  background-color: #ECEBEB!important;
+}
+
+body {
+  margin: 0px;
+  padding: 0px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+#homeUser{
+    margin: 10px 50px 50px;
+    border-radius: 30px;
+    background-color: white;
+    padding: 53px 29px;
+}
+
+#perfil{
+    display: flex;
+    height: 118px;   
+    padding: 15px; 
+}
+
+#perfil a{
+    text-decoration: none;
+    cursor: pointer;
+    color: black;
+}
+
+#perfil h2{
+    display: flex;
+    font-size: 20px!important;
+    font-weight: 600;
+    line-height: 20px;
+    align-items: center;
+}
+
+#endereco{
+    height: 118px;
+    padding: 20px; 
+}
+
+#endereco p{
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}
+
+
+#endereco div {
+    display: flex;
+    justify-content: space-between;
+}
+
+#endereco a{
+    text-decoration: none;
+    display: flex;    
+    width: 24px;
+    height: 24px;
+    color: black;
+}
+
+#endereco h2{
+    width: 100%;
+}
+
+#endereco a i{
+    width: 24px;
+    height: 24px;
+}
+
+#dadosPessoais{
+    height: 246px;
+    padding: 30px;
+}
+
+#dadosPessoais h2{
+    margin-bottom: 21px;
+    
+    width: 70%;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}
+
+#dadosPessoais p{
+    margin-bottom: 11px;
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}
+
+#dadosPessoais a {
+    text-decoration: none;
+    display: flex;    
+    width: 24px;
+    height: 24px;
+    color: black;
+}
+
+#dadosPessoais a i{
+    width: 24px;
+    height: 24px;
+}
+
+#dadosPessoais div {
+    display: flex;
+    justify-content: space-between;
+}
+
+#solPendentes{
+    height: 207px;
+    padding: 20px 27px;
+}
+
+#solPendentes h2{
+    margin-bottom: 15px;
+}
+
+#solPendentes p{
+    color:rgba(228, 121, 21, 0.87);
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    margin-bottom: 15px;
+}
+
+#solConcluidas{
+    height: 154px;
+    padding: 20px 27px;
+}
+
+#solConcluidas h2{
+    font-size: 15px;
+    margin-bottom: 15px;
+}
+
+
+#solConcluidas p{
+    color: rgba(47, 170, 4, 0.87);
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    margin-bottom: 15px;
+}
+
+.caixa{
+    border-radius: 30px;
+    padding: 29px;
+    background-color: #ECEBEB;
+}
+
+
+h2{
+    color: rgba(0, 0, 0, 0.87);
+    font-style: normal;
+    font-size: 15px!important;
+    font-weight: 600;
+    line-height: normal;
+}
+
+.novaSolicitacao{
+    margin: 20px 50px;
+    display: flex;
+    justify-content: end;
+}
+
+.novaSolicitacao a{
+    text-decoration: none;
+    background-color: white;
+    padding: 5px 19px;
+    border-radius: 8px;
+    color: rgba(0, 0, 0, 0.87);
+
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}
+
+
+.btn-cancelar{
+    width: 121px;
+    height: 35px;
+    border-radius: 10px;
+    color: white;
+    background-color: black;
+    border: 1px solid white;
+}
+
+.btn-alterar{
+    width: 121px;
+    height: 35px;
+    border-radius: 10px;
+    color: white;
+    background-color: #F2C85A;
+    border: 1px solid #F2C85A;
+}
+
+
+.input{
+    width: 281px;
+    border-radius: 10px;
+    border: 1px solid #D9D9D9;
+    padding: 5px 15px;
+}
+
+
+
+
+/* The Close Button */
+.close{
+    display: flex;
+    justify-content: end;
+    padding: 8px;
+}
+
+.close img{
+    color: black;
+    font-weight: bold;
+}
+
+.close img:hover,
+.close img:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.botao{
+    display: flex;
+    justify-content: center;
+    gap: 35px;
+}
+
+/* modal */
+
+.modal{
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: none; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* modal perfil */
+.box {
+    display: flex;
+    flex-direction: column;
+    margin: 50px auto;
+    width: 507px;
+    background-color: black;
+}
+
+.modal-conteudo{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 507px;
+    padding: 0px 113px 40px;
+}
+
+.modal-conteudo label{
+    color: white;
+    font-size: 12px;
+    margin-bottom: 8px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 14.5px; 
+}
+
+
+/* modal dados pessoais */
+
+.box-dados-pessoais{
+    display: flex;
+    flex-direction: column;
+    margin: 50px auto;
+    width: 719px;
+    background-color: black;
+}
+
+.modal-conteudo-dados-pessoais{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 0px 54px 64px;
+}
+
+.modal-conteudo-dados-pessoais label{
+    color: white;
+    font-size: 12px;
+    margin-bottom: 8px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 14.5px; 
+}
+
+
+
+/* modal endereco */
+
+.box-endereco{
+    display: flex;
+    flex-direction: column;
+    margin: 50px auto;
+    width: 719px;
+    background-color: black;
+}
+
+.modal-conteudo-endereco{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 0px 54px 64px;
+}
+
+.modal-conteudo-endereco label{
+    color: white;
+    font-size: 12px;
+    margin-bottom: 8px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 14.5px; 
+}
