@@ -1,0 +1,66 @@
+<%- include('../shared/header_solicitacao') %>
+
+<div class="container-cadastro">
+  <div class="content-box">
+      <div class="login-logo">
+        <a href="/">
+          <img src="/img/Logo_header.png" alt="">
+        </a>
+      </div>
+      <div class="form-box">
+        <div class="voltar">
+          <a href="/">
+            <img src="/img/voltar.png" alt="">            
+          </a>  
+          Voltar        
+        </div>
+        
+        <form action="/solicitar/novo" method="post">
+          <div>
+            <h2>Escolha o serviço desejado:</h2>
+          </div>  
+          <hr>
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="" id="declaracao">
+              <p class="form-check-label">
+                <b>Pavimentação de ruas não asfaltadas:</b> A pavimentação de ruas de terra regulares (oficiais) realizada pela Prefeitura com uso de pedra britada ou resíduos da demolição de obras, seguida pela aplicação de camada de asfalto.</p>       
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="" id="autorizar">
+            <p class="form-check-label" for="flexCheckDefault">
+              <b>Recapeamento:</b> É a remoção do asfalto antigo na rua e aplicação de nova camada de asfalto em seu lugar. Onde houver necessidade também é realizada reforma de guias e sarjetas.
+            </p>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="" id="autorizar">
+            <p class="form-check-label" for="flexCheckDefault">
+              <b>Tapa-buraco:</b> Conserto no asfalto feito no lugar onde surgiu um buraco: o asfalto velho é removido de toda a área ao redor do buraco, preenchendo-se então o local com asfalto novo.
+            </p>
+          </div>
+          <hr>  
+          <div>
+            <span>Endereço desejado:</span>
+            <span><b>Rua abecede, 50 (04591-598) - São Paulo - SP</b></span>
+          </div>
+          <hr>
+          <div class="btn-cadastro">
+            <input type="submit" value="Enviar">
+          </div>
+        </form>
+      </div>
+  </div>
+  <div class="img-box">
+    <div class="logout">
+      <a href="/logout" >
+        <img src="/img/logar.png" alt=""> </img>
+      </a>
+    </div>
+      <!-- <img src="img/imagem_fundo_asfalto.png"> -->
+    <div class="quem-somos">
+      <button>Quem somos?</button>
+      <p>
+        Criado em parceria com o governo federal para melhorar a infraestrutura viária de forma colaborativa e eficaz.
+      </p>
+    </div>
+  </div>
+</div>
