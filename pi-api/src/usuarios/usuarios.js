@@ -1,45 +1,59 @@
-import { DatabasePostgres } from '../../database-postgres.js';
+import { UsuariosDatabase } from './usuariosdb.js';
 
 export class Usuarios {
   async usuarioPost(request, response) {
-    const { title, description, duration } = request.body;
-    const database = new DatabasePostgres();
+    const database = new UsuariosDatabase();
+    const usuario = request.body;
   
     await database.create({
-      title: title,
-      description: description,
-      duration: duration,
+      email: usuario.email,
+      senha: usuario.senha,
+      nome: usuario.nome,
+      cpf: usuario.cpf,
+      dataNascimento: usuario.dataNascimento,
+      endereco: usuario.endereco,
+      numero: usuario.numero,
+      cep: usuario.cep,
+      telefone: usuario.telefone
     });
   
     return response.status(201).send({ "mensagem": "Usuário cadastrado com sucesso!" });
   };
   
   async usuariosGet(request, response) {
-    const database = new DatabasePostgres();
+    const database = new UsuariosDatabase();
     const search = request.query.search;
-    const videos = await database.list(search);
+    const usuarios = await database.list(search);
 
-    return response.status(200).send(videos);
+    return response.status(200).send(usuarios);
   };
   
-  // server.put('/videos/:id', async (request, response) => {
-  //   const videoId = request.params.id;
-  //   const { title, description, duration } = request.body;
+  async usuariosPut(request, response) {
+    const database = new UsuariosDatabase();
+    const usuarioId = request.params.id;
+    const usuario = request.body;
   
-  //   await database.update(videoId, {
-  //     title: title,
-  //     description: description,
-  //     duration: duration,
-  //   });
+    await database.update(usuarioId, {
+      email: usuario.email,
+      senha: usuario.senha,
+      nome: usuario.nome,
+      cpf: usuario.cpf,
+      dataNascimento: usuario.dataNascimento,
+      endereco: usuario.endereco,
+      numero: usuario.numero,
+      cep: usuario.cep,
+      telefone: usuario.telefone
+    });
   
-  //   return response.status(204).send();
-  // });
+    return response.status(200).send({ "mensagem": "Usuário alterado com sucesso!" });
+  };
   
-  // server.delete('/videos/:id', async (request, response) => {
-  //   const videoId = request.params.id;
+  async usuariosDelete(request, response) {
+    const database = new UsuariosDatabase();
+    const usuarioId = request.params.id;
   
-  //   await database.delete(videoId);
+    await database.delete(usuarioId);
   
-  //   return response.status(204).send();
-  // });
+    return response.status(200).send({ "mensagem": "Usuário excluído com sucesso!" });
+  };
 };

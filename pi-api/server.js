@@ -1,58 +1,25 @@
 import { fastify } from 'fastify';
-// import { DatabaseMemory } from './database-memory.js';
-// import { DatabasePostgres } from './database-postgres.js';
+import { criarTabelas } from './src/database/create-tables.js';
 import { Usuarios } from './src/usuarios/usuarios.js';
+import { Autenticacao } from './src/autenticacao/autenticacao.js';
 
 const server = fastify();
 const usuarios = new Usuarios();
+const autenticacao = new Autenticacao();
 
-server.post('/videos', (request, response) => { usuarios.usuarioPost(request, response); return response; });
-server.get('/videos', (request, response) => { usuarios.usuariosGet(request, response); return response; });
-server.put('/videos:id', (request, response) => { usuarios.usuariosGet(request, response); return response; });
-server.delete('/videos:id', (request, response) => { usuarios.usuariosGet(request, response); return response; });
+criarTabelas();
 
-// const database = new DatabaseMemory();
-// const database = new DatabasePostgres();
+server.post('/autenticacao', (request, response) => { autenticacao.autenticarUsuario(request, response); return response; });
 
-// server.post('/videos', async (request, response) => {
-//   const { title, description, duration } = request.body;
+server.post('/usuarios', (request, response) => { usuarios.usuarioPost(request, response); return response; });
+server.get('/usuarios', (request, response) => { usuarios.usuariosGet(request, response); return response; });
+server.put('/usuarios/:id', (request, response) => { usuarios.usuariosPut(request, response); return response; });
+server.delete('/usuarios/:id', (request, response) => { usuarios.usuariosDelete(request, response); return response; });
 
-//   await database.create({
-//     title: title,
-//     description: description,
-//     duration: duration,
-//   });
-
-//   return response.status(201).send();
-// });
-
-// server.get('/videos', async (request) => {
-//   const search = request.query.search;
-//   const videos = await database.list(search);
-
-//   return videos;
-// });
-
-// server.put('/videos/:id', async (request, response) => {
-//   const videoId = request.params.id;
-//   const { title, description, duration } = request.body;
-
-//   await database.update(videoId, {
-//     title: title,
-//     description: description,
-//     duration: duration,
-//   });
-
-//   return response.status(204).send();
-// });
-
-// server.delete('/videos/:id', async (request, response) => {
-//   const videoId = request.params.id;
-
-//   await database.delete(videoId);
-
-//   return response.status(204).send();
-// });
+server.post('/solicitacoes', (request, response) => { usuarios.usuarioPost(request, response); return response; });
+server.get('/solicitacoes', (request, response) => { usuarios.usuariosGet(request, response); return response; });
+server.put('/solicitacoes/:id', (request, response) => { usuarios.usuariosPut(request, response); return response; });
+server.delete('/solicitacoes/:id', (request, response) => { usuarios.usuariosDelete(request, response); return response; });
 
 server.listen({
   port: 3333
