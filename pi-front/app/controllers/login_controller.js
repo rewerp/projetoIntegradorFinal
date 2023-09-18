@@ -11,7 +11,7 @@ var LoginController = {
   },
   autenticar: function (req, res, next) {
     var login = new Login();
-    login.login = req.body.email;
+    login.email = req.body.login;
     login.senha = req.body.senha;
     login.autenticar(function (retorno) {
       if (retorno.erro) {
@@ -21,11 +21,13 @@ var LoginController = {
         }
         res.render("./login/index", { erro: erro });
       } else {
-        Cookie.set(res, "usuario", retorno.data);
+        var valor = JSON.stringify(retorno.data.usuario);
+        Cookie.set(res, "usuario", valor);
         res.redirect("/usuarios");
       }
     });
   },
+  
   deslogar: function (req, res, next) {
     Cookie.remove(res, "usuario");
     res.redirect("/");

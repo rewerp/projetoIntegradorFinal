@@ -4,10 +4,10 @@ var Login = function (login) {
   this.restName = "login";
 
   if (login != undefined) {
-    this.login = login.login;
+    this.email = login.login;
     this.senha = login.senha;
   } else {
-    this.login = "";
+    this.email = "";
     this.senha = "";
   }
 };

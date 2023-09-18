@@ -11,8 +11,8 @@ var Usuario = function (usuario) {
     this.endereco = usuario.endereco; 
     this.numero = usuario.numero;
     this.cep = usuario.cep;
-    this.ddd = usuario.ddd;
-    this.celular = usuario.celular; 
+    //this.ddd = usuario.ddd;
+    this.telefone = usuario.celular; 
     this.email = usuario.email;
     this.senha = usuario.senha;
 
@@ -24,8 +24,8 @@ var Usuario = function (usuario) {
     this.endereco = ""; 
     this.numero = "";
     this.cep = "";
-    this.ddd = 0;
-    this.celular = ""; 
+    //this.ddd = 0;
+    this.telefone = ""; 
     this.email = "";
     this.senha = "";
   }

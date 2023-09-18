@@ -9,13 +9,14 @@ Base.prototype.salvar = function(callback){
     var data = this;
     var restName = this.restName;
     var baseHost = this.baseHost;
-    request.head(baseHost + "/" + restName + ".json", function(){
-        token = this.response.headers.auth_token;
+    //request.head(baseHost + "/" + restName + ".json", function(){
+        //token = this.response.headers.auth_token;
         if(data.id === "" || data.id === undefined || data.id === 0 ){
             request.post({ 
-                url: baseHost + "/" + restName + ".json", 
-                headers: {'auth_token': token }, 
-                form: data
+                url: baseHost + "/" + restName, 
+                //headers: {'auth_token': token }, 
+                headers: {'content-type' : 'application/json'},
+                json: data
             }, function(error, response, body){
                     if( response.statusCode == 201 ) {
                         callback( {
@@ -34,9 +35,10 @@ Base.prototype.salvar = function(callback){
         }
         else {
             request.put({ 
-                url: baseHost + "/" + restName + ".json", 
-                headers: {'auth_token': token }, 
-                form: data
+                url: baseHost + "/" + restName + "/" + data.id, 
+                //headers: {'auth_token': token },
+                headers: {'content-type' : 'application/json'}, 
+                json: data
             }, function(error, response, body){
                     if( response.statusCode >= 200 && response.statusCode <= 299 ) {
                         callback( {
@@ -53,19 +55,20 @@ Base.prototype.salvar = function(callback){
             });              
         }
 
-    });    
+    //});    
 };
 
 Base.prototype.autenticar = function(callback){
     var data = this;
     var restName = this.restName;
     var baseHost = this.baseHost;
-    request.head(baseHost + "/" + restName + ".json", function(){
-        token = this.response.headers.auth_token;
+    //request.head(baseHost + "/" + restName + ".json", function(){
+        //token = this.response.headers.auth_token;
             request.post({ 
-                url: baseHost + "/" + restName + ".json", 
-                headers: {'auth_token': token }, 
-                form: data
+                url: baseHost + "/autenticacao", 
+                // headers: {'auth_token': token },
+                headers: {'content-type' : 'application/json'}, 
+                json: data
             }, function(error, response, body){
                     if( response.statusCode == 200 ) {
                         callback( {
@@ -82,7 +85,7 @@ Base.prototype.autenticar = function(callback){
                     }
                 }
             );   
-    });    
+    //});    
 };
 
 Base.prototype.buscar = function(callback){
@@ -92,11 +95,11 @@ Base.prototype.buscar = function(callback){
     var key = 'cache-' + this.restName + '-' + id;
 
     
-        request.head(baseHost + "/" + restName + ".json", function(){
-            token = this.response.headers.auth_token;
+        //request.head(baseHost + "/" + restName + ".json", function(){
+            //token = this.response.headers.auth_token;
             request.get({ 
-                url: baseHost + "/" + restName + "/"+ id + ".json", 
-                headers: {'auth_token': token }
+                url: baseHost + "/" + restName + "/"+ id, 
+                //headers: {'auth_token': token }
             }, function(error, response, body){
                 if( response.statusCode == 200 ) {
                     var value = JSON.parse(response.body); 
@@ -110,7 +113,7 @@ Base.prototype.buscar = function(callback){
                     });
                 }
             }); 
-        });    
+        //});    
         
 };
 
@@ -151,7 +154,7 @@ Base.prototype.excluir = function(callback){
 
 Base.prototype.todos = function(callback){     
     request.get({ 
-        url: this.baseHost + "/" + this.restName + ".json" }, function(error, response, body){
+        url: this.baseHost + "/" + this.restName}, function(error, response, body){
             var json = JSON.parse(response.body);
             if( response.statusCode == 200 ) {
                 callback(json);

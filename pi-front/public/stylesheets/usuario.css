@@ -109,9 +109,24 @@ body {
     height: 24px;
 }
 
-#dadosPessoais div {
+#dadosPessoais .row{
     display: flex;
     justify-content: space-between;
+}
+
+#dadosPessoais div{
+    display: flex;
+    gap: 25px;
+    color: black;
+
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}
+
+#dadosPessoais div span{
+    color: #3D3C3CDE;
 }
 
 #solPendentes{
