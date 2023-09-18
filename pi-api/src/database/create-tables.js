@@ -2,18 +2,18 @@ import { sql } from './db.js';
 
 export async function criarTabelas() {
   await sql`
-    CREATE TABLE IF NOT EXISTS usuarios (
-      id serial PRIMARY KEY,
-      email VARCHAR(255) NOT NULL,
-      senha VARCHAR(255) NOT NULL,
-      nome VARCHAR(255) NOT NULL,
-      cpf VARCHAR(14) NOT NULL,
-      data_nascimento DATE,
-      endereco VARCHAR(255),
-      numero VARCHAR(10),
-      cep VARCHAR(8),
-      telefone VARCHAR(15)
-    );
+  CREATE TABLE IF NOT EXISTS usuarios (
+    id SERIAL PRIMARY KEY,
+    email VARCHAR(255) UNIQUE NOT NULL,
+    senha VARCHAR(255) NOT NULL,
+    nome VARCHAR(100) NOT NULL,
+    cpf VARCHAR(14) UNIQUE NOT NULL,
+    data_nascimento DATE,
+    endereco VARCHAR(255),
+    numero VARCHAR(10),
+    cep VARCHAR(10),
+    telefone VARCHAR(15)
+);
   `.then(() => {
     console.log('Tabela "USUARIOS" criada com sucesso!');
   });

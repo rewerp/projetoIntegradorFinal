@@ -5,7 +5,7 @@ export class Usuarios {
     const database = new UsuariosDatabase();
     const usuario = request.body;
   
-    await database.create({
+    const retorno = await database.create({
       email: usuario.email,
       senha: usuario.senha,
       nome: usuario.nome,
@@ -17,7 +17,7 @@ export class Usuarios {
       telefone: usuario.telefone
     });
   
-    return response.status(201).send({ "mensagem": "Usuário cadastrado com sucesso!" });
+    return response.status(201).send(retorno);
   };
   
   async usuariosGet(request, response) {

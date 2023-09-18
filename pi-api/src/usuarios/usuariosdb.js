@@ -18,8 +18,14 @@ export class UsuariosDatabase {
   async create(usuario) {
     const { email, senha, nome, cpf, dataNascimento, endereco, numero, cep, telefone } = usuario;
 
-    await sql`insert into usuarios (email, senha, nome, cpf, data_nascimento, endereco, numero, cep, telefone) 
-              values (${email}, ${senha}, ${nome}, ${cpf}, ${dataNascimento}, ${endereco}, ${numero}, ${cep}, ${telefone})`;
+    try {
+      await sql`insert into usuarios (email, senha, nome, cpf, data_nascimento, endereco, numero, cep, telefone) 
+                values (${email}, ${senha}, ${nome}, ${cpf}, ${dataNascimento}, ${endereco}, ${numero}, ${cep}, ${telefone})`;
+
+      return { "mensagem": "Usuário cadastrado com sucesso!" }
+    } catch {
+      return { "mensagem": "Usuário já cadastrado!" }
+    }
   };
 
   async update(id, usuario) {

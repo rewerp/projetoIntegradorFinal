@@ -6,8 +6,6 @@ export class AutenticacaoDatabase {
   async list(autenticacao) {
     let usuario = await sql`select * from usuarios where email = ${autenticacao.email}`;
 
-    usuario.
-
     return (usuario);
   }
 };
