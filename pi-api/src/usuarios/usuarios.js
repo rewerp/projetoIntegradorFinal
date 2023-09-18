@@ -13,12 +13,12 @@ export class Usuarios {
         cpf: usuario.cpf,
         dataNascimento: usuario.dataNascimento,
         endereco: usuario.endereco,
+        cidade: usuario.cidade,
         numero: usuario.numero,
         cep: usuario.cep,
         telefone: usuario.telefone
       });
 
-      retorno = { mensagem: "Usuário cadastrado com sucesso." }
       return response.status(201).send({ mensagem: "Usuário cadastrado com sucesso." });
     } catch (error) {
       const erroJSON = {
@@ -32,8 +32,8 @@ export class Usuarios {
 
   async usuariosGet(request, response) {
     const database = new UsuariosDatabase();
-    const search = request.query.search;
-    const usuarios = await database.list(search);
+    const usuarioId = request.params.id;
+    const usuarios = await database.list(usuarioId);
 
     return response.status(200).send(usuarios);
   };
@@ -43,6 +43,8 @@ export class Usuarios {
     const usuarioId = request.params.id;
     const usuario = request.body;
 
+    console.log(usuario);
+
     await database.update(usuarioId, {
       email: usuario.email,
       senha: usuario.senha,
@@ -50,6 +52,7 @@ export class Usuarios {
       cpf: usuario.cpf,
       dataNascimento: usuario.dataNascimento,
       endereco: usuario.endereco,
+      cidade: usuario.cidade,
       numero: usuario.numero,
       cep: usuario.cep,
       telefone: usuario.telefone

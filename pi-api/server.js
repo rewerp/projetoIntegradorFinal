@@ -15,6 +15,7 @@ server.post('/autenticacao', (request, response) => { autenticacao.autenticarUsu
 
 server.post('/usuarios', (request, response) => { usuarios.usuariosPost(request, response); return response; });
 server.get('/usuarios', (request, response) => { usuarios.usuariosGet(request, response); return response; });
+server.get('/usuarios/:id', (request, response) => { usuarios.usuariosGet(request, response); return response; });
 server.put('/usuarios/:id', (request, response) => { usuarios.usuariosPut(request, response); return response; });
 server.delete('/usuarios/:id', (request, response) => { usuarios.usuariosDelete(request, response); return response; });
 

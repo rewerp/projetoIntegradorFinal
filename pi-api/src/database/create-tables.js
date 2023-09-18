@@ -10,6 +10,7 @@ export async function criarTabelas() {
     cpf VARCHAR(14) UNIQUE NOT NULL,
     data_nascimento DATE,
     endereco VARCHAR(255),
+    cidade VARCHAR(255),
     numero VARCHAR(10),
     cep VARCHAR(10),
     telefone VARCHAR(15)

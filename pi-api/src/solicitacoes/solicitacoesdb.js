@@ -3,14 +3,10 @@ import { sql } from '../database/db.js';
 export class SolicitacoesDatabase {
   #usuarios = new Map();
 
-  async list(search) {
+  async list() {
     let solicitacoes;
 
-    if (search) {
-      solicitacoes = await sql`select * from solicitacoes where id = ${search}`;
-    } else {
-      solicitacoes = await sql`select * from solicitacoes`;
-    }
+    solicitacoes = await sql`select * from solicitacoes`;
 
     return solicitacoes;
   }

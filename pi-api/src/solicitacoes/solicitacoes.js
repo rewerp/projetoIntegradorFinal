@@ -27,8 +27,7 @@ export class Solicitacoes {
 
   async solicitacoesGet(request, response) {
     const database = new SolicitacoesDatabase();
-    const search = request.query.search;
-    const solicitacoes = await database.list(search);
+    const solicitacoes = await database.list();
 
     return response.status(200).send(solicitacoes);
   };
