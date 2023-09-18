@@ -4,34 +4,33 @@ export class SolicitacoesDatabase {
   #usuarios = new Map();
 
   async list(search) {
-    let usuarios;
+    let solicitacoes;
 
     if (search) {
-      usuarios = await sql`select * from solicitacoes where id = ${search}`;
+      solicitacoes = await sql`select * from solicitacoes where id = ${search}`;
     } else {
-      usuarios = await sql`select * from solicitacoes`;
+      solicitacoes = await sql`select * from solicitacoes`;
     }
 
-    return usuarios;
+    return solicitacoes;
   }
 
-  async create(usuario) {
-    const { email, senha, nome, cpf, dataNascimento, endereco, numero, cep, telefone } = usuario;
+  async create(solicitacao) {
+    const { usuarioId, tipoServico, endereco, cep, status } = solicitacao;
 
-    await sql`insert into usuarios (email, senha, nome, cpf, data_nascimento, endereco, numero, cep, telefone) 
-              values (${email}, ${senha}, ${nome}, ${cpf}, ${dataNascimento}, ${endereco}, ${numero}, ${cep}, ${telefone})`;
+    await sql`insert into solicitacoes (usuario_id, tipo_servico, endereco, cep, status) 
+              values (${usuarioId}, ${tipoServico}, ${endereco}, ${cep}, ${status})`;
   };
 
-  async update(id, usuario) {
-    const { email, senha, nome, cpf, dataNascimento, endereco, numero, cep, telefone } = usuario;
+  async update(id, solicitacao) {
+    const { usuarioId, tipoServico, endereco, cep, status } = solicitacao;
 
-    await sql`update usuarios set 
-              email = ${email}, senha = ${senha}, nome = ${nome}, cpf = ${cpf}, data_nascimento = ${dataNascimento}, 
-              endereco = ${endereco}, numero = ${numero}, cep = ${cep}, telefone = ${telefone} 
+    await sql`update solicitacoes set usuario_id = ${usuarioId}, tipo_servico = ${tipoServico}, 
+              endereco = ${endereco}, cep = ${cep}, status = ${status}
               where id = ${id}`;
   };
 
   async delete(id) {
-    await sql`delete from usuarios where id = ${id}`;
+    await sql`delete from solicitacoes where id = ${id}`;
   }
 };

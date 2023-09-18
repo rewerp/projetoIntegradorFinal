@@ -11,9 +11,9 @@ export class Autenticacao {
     });
 
     if (usuario[0]) {
-      return response.status(200).send(usuario);
+      return response.status(200).send({ mensagem: "Usuário autorizado.", usuario: usuario[0] });
     } else {
-      return response.status(401).send({ "mensagem": "Usuário ou senha inválidos." });
+      return response.status(401).send({ mensagem: "Usuário ou senha inválidos." });
     }
   };
 };

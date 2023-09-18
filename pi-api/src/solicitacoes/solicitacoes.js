@@ -3,64 +3,58 @@ import { SolicitacoesDatabase } from './solicitacoesdb.js';
 export class Solicitacoes {
   async solicitacoesPost(request, response) {
     const database = new SolicitacoesDatabase();
-    const usuario = request.body;
-    let retorno;
+    const solicitacao = request.body;
 
     try {
       await database.create({
-        email: usuario.email,
-        senha: usuario.senha,
-        nome: usuario.nome,
-        cpf: usuario.cpf,
-        dataNascimento: usuario.dataNascimento,
-        endereco: usuario.endereco,
-        numero: usuario.numero,
-        cep: usuario.cep,
-        telefone: usuario.telefone
+        usuarioId: solicitacao.usuarioId,
+        tipoServico: solicitacao.tipoServico,
+        endereco: solicitacao.endereco,
+        cep: solicitacao.cep,
+        status: solicitacao.status
       });
 
-      retorno = { "mensagem": "Usuário cadastrado com sucesso." }
-    } catch {
-      retorno = { "mensagem": "Usuário já cadastrado." }
-    }
+      return response.status(201).send({ mensagem: "Solicitação cadastrada com sucesso." });
+    } catch (error) {
+      const erroJSON = {
+        mensagem: "Ocorreu um erro ao cadastrar a solicitação.",
+        detalhes: error.message
+      }
 
-    return response.status(201).send(retorno);
+      return response.status(409).send(erroJSON);
+    }
   };
 
   async solicitacoesGet(request, response) {
     const database = new SolicitacoesDatabase();
     const search = request.query.search;
-    const usuarios = await database.list(search);
+    const solicitacoes = await database.list(search);
 
-    return response.status(200).send(usuarios);
+    return response.status(200).send(solicitacoes);
   };
 
   async solicitacoesPut(request, response) {
     const database = new SolicitacoesDatabase();
-    const usuarioId = request.params.id;
-    const usuario = request.body;
+    const solicitacaoId = request.params.id;
+    const solicitacao = request.body;
 
-    await database.update(usuarioId, {
-      email: usuario.email,
-      senha: usuario.senha,
-      nome: usuario.nome,
-      cpf: usuario.cpf,
-      dataNascimento: usuario.dataNascimento,
-      endereco: usuario.endereco,
-      numero: usuario.numero,
-      cep: usuario.cep,
-      telefone: usuario.telefone
+    await database.update(solicitacaoId, {
+      usuarioId: solicitacao.usuarioId,
+      tipoServico: solicitacao.tipoServico,
+      endereco: solicitacao.endereco,
+      cep: solicitacao.cep,
+      status: solicitacao.status
     });
 
-    return response.status(200).send({ "mensagem": "Usuário alterado com sucesso." });
+    return response.status(200).send({ mensagem: "Solicitação alterada com sucesso." });
   };
 
   async solicitacoesDelete(request, response) {
     const database = new SolicitacoesDatabase();
-    const usuarioId = request.params.id;
+    const solicitacaoId = request.params.id;
 
-    await database.delete(usuarioId);
+    await database.delete(solicitacaoId);
 
-    return response.status(200).send({ "mensagem": "Usuário excluído com sucesso." });
+    return response.status(200).send({ mensagem: "Solicitação excluída com sucesso." });
   };
 };

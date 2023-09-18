@@ -19,9 +19,15 @@ export class Usuarios {
         telefone: usuario.telefone
       });
 
-      retorno = { "mensagem": "Usuário cadastrado com sucesso." }
-    } catch {
-      retorno = { "mensagem": "E-mail ou CPF já cadastrado." }
+      retorno = { mensagem: "Usuário cadastrado com sucesso." }
+      return response.status(201).send({ mensagem: "Usuário cadastrado com sucesso." });
+    } catch (error) {
+      const erroJSON = {
+        mensagem: "E-mail ou CPF já cadastrado.",
+        detalhes: error.message
+      }
+
+      return response.status(409).send(erroJSON);
     }
 
     return response.status(201).send(retorno);
@@ -52,7 +58,7 @@ export class Usuarios {
       telefone: usuario.telefone
     });
 
-    return response.status(200).send({ "mensagem": "Usuário alterado com sucesso." });
+    return response.status(200).send({ mensagem: "Usuário alterado com sucesso." });
   };
 
   async usuariosDelete(request, response) {
@@ -61,6 +67,6 @@ export class Usuarios {
 
     await database.delete(usuarioId);
 
-    return response.status(200).send({ "mensagem": "Usuário excluído com sucesso." });
+    return response.status(200).send({ mensagem: "Usuário excluído com sucesso." });
   };
 };
