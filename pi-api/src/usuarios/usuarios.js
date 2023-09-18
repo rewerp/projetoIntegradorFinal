@@ -4,7 +4,6 @@ export class Usuarios {
   async usuariosPost(request, response) {
     const database = new UsuariosDatabase();
     const usuario = request.body;
-    let retorno;
 
     try {
       await database.create({
@@ -29,8 +28,6 @@ export class Usuarios {
 
       return response.status(409).send(erroJSON);
     }
-
-    return response.status(201).send(retorno);
   };
 
   async usuariosGet(request, response) {
