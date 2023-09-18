@@ -24,6 +24,7 @@ function editarEndereco(){
     $("#modal-endereco #enderecoAtual").val($("#rua").text());
     $("#modal-endereco #numeroAtual").val($("#numero").text());
     $("#modal-endereco #cepAtual").val($("#cep").text());
+    $("#modal-endereco #cidadeAtual").val($("#cidade").text());
 }
 
 function closeEndereco(){
@@ -44,20 +45,26 @@ function alterarPerfil(){
     usuario.endereco = $("#rua").text();
     usuario.numero = $("#numero").text();
     usuario.cep = $("#cep").text();
+    usuario.cidade = $("#cidade").text();
 
     $.ajax({
         method: "POST",
         url: "http://localhost:3001/usuarios/" + usuario.id + "/atualizar",
         data: usuario
-    })
+    }).done(function(msg){
+        closePerfil();
+        document.location.href = "http://localhost:3001/usuarios";        
+   })
 }
 
 function alterarDadosPessoais(){
     var usuario = new Object();
-    usuario.id = $("#modal-dados-pessoais #id").val();
+    usuario.id = $("#perfil #id").val();
     usuario.nome = $("#nome").text();
 
-    usuario.dataNascimento = $("#modal-dados-pessoais #idade").val();
+    var data = $("#modal-dados-pessoais #idade").val();    
+
+    usuario.dataNascimento = FormataStringData(data);
     usuario.cpf = $("#modal-dados-pessoais #cpf").val();
     usuario.celular = $("#modal-dados-pessoais #celular").val();
     usuario.ddd = $("#modal-dados-pessoais #ddd").val();
@@ -66,12 +73,22 @@ function alterarDadosPessoais(){
     usuario.endereco = $("#rua").text();
     usuario.numero = $("#numero").text();
     usuario.cep = $("#cep").text();
+    usuario.cidade = $("#cidade").text();
+
+    $.ajax({
+        method: "POST",
+        url: "http://localhost:3001/usuarios/" + usuario.id + "/atualizar",
+        data: usuario
+    }).done(function(msg){
+        closeDadosPessoais();
+        document.location.href = "http://localhost:3001/usuarios";        
+   })
     
 }
 
 function alterarEndereco(){
     var usuario = new Object();
-    usuario.id = $("#modal-endereco #id").val();
+    usuario.id = $("#perfil #id").val();
     usuario.nome = $("#nome").text();
 
     usuario.dataNascimento = $("#idade").text();
@@ -83,5 +100,24 @@ function alterarEndereco(){
     usuario.endereco = $("#modal-endereco #rua").val();
     usuario.numero = $("#modal-endereco #numero").val();
     usuario.cep = $("#modal-endereco #cep").val();
+    usuario.cidade = $("#modal-endereco #cidade").val();
+
+    $.ajax({
+        method: "POST",
+        url: "http://localhost:3001/usuarios/" + usuario.id + "/atualizar",
+        data: usuario
+    }).done(function(msg){
+        closeEndereco();
+        document.location.href = "http://localhost:3001/usuarios";        
+   })
+}
+
+function FormataStringData(data) {
+    var dia  = data.split("/")[0];
+    var mes  = data.split("/")[1];
+    var ano  = data.split("/")[2];
+  
+    return ano + '-' + ("0"+mes).slice(-2) + '-' + ("0"+dia).slice(-2);
+    // Utilizo o .slice(-2) para garantir o formato com 2 digitos.
 }
 

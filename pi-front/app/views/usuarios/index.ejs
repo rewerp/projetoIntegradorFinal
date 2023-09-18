@@ -45,7 +45,7 @@
             </a>            
           </div> 
           <div>
-            <p>Idade:</p><span id="idade">29</span>   
+            <p>Idade:</p><span id="idade"><%= usuario.data_nascimento %></span>   
           </div> 
           <div>
             <p>CPF:</p><span id="cpf"><%= usuario.cpf %></span>    
@@ -180,6 +180,10 @@
             <label for="">CEP atual: </label>
             <input type="text" class="input" name="cepAtual" id="cepAtual" placeholder="">
           </div>          
+          <div class="">
+            <label for="">Cidade atual: </label>
+            <input type="text" class="input" name="cidadeAtual" id="cidadeAtual" placeholder="">
+          </div>          
         </div>
         <div class="col">
           <div class="">
@@ -193,6 +197,10 @@
           <div class="">
             <label for="">Novo CEP : </label>
             <input type="text" class="input" name="cep" placeholder="Preeencher..." id="cep">
+          </div>          
+          <div class="">
+            <label for="">Nova Cidade : </label>
+            <input type="text" class="input" name="cidade" placeholder="Preeencher..." id="cidade">
           </div>          
         </div>
       </div>
