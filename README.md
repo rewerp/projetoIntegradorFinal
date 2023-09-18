@@ -46,7 +46,7 @@ Para preparar o ambiente para utilizar o sistema, é preciso seguir os seguintes
     1. Abra a pasta _**"pi-api"**_ em um terminal, pode ser **cmd.exe** ou qualquer outro, e execute o comando **"npm install"**. 
     1. Repita o passo para _**"pi-front"**_.
 
-Obs.: O banco de dados PostgreSQL, está hospedado na plataforma Neon.tech, a aplicação já possuí toda a configuração necessária para integração, sem a necessidade de instalação local.
+**IMPORTANTE** - O banco de dados PostgreSQL, está hospedado na plataforma Neon.tech e a aplicação já possuí toda a configuração necessária para integração, sem a necessidade de instalação local.
 
 ## Utilizando a aplicação
 
