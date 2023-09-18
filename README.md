@@ -11,9 +11,9 @@
 
 ## Sobre o projeto
 
-O projeto **Pavimenta BR** nasceu da necessidade de fornecer aos munícipes um canal digital para informar sobre as vias automotoras que precisam de manutenção e reparos em sua pavimentação. O objetivo é estabelecer uma comunicação quase direta entre o munícipe e a administração municipal.
+O projeto **Pavimenta BR** nasceu da necessidade de fornecer para a população um canal digital para informar sobre as vias automotoras que precisam de manutenção e reparos em sua pavimentação. O objetivo é estabelecer uma comunicação quase direta entre a população e a administração municipal.
 
-O munícipe acessa a plataforma, cria um cadastro e, em seguida, está apto a cadastrar solicitações de reparos em vias públicas. É possível realizar quantas solicitações forem necessárias, indicando o endereço para manutenção e reparos.
+O solicitante acessa a plataforma, cria um cadastro e, em seguida, está apto a cadastrar solicitações de reparos em vias públicas. É possível realizar quantas solicitações forem necessárias, indicando o endereço para manutenção e reparos.
 
 O projeto é composto por uma API desenvolvida em Node.js e uma aplicação web. Para armazenar os dados, é utilizado o banco de dados PostgreSQL através da plataforma Neon.tech. Essa plataforma permite a utilização de um banco de dados sem a necessidade de instalação local e com centralização de servidor.
 
@@ -45,6 +45,8 @@ Para preparar o ambiente para utilizar o sistema, é preciso seguir os seguintes
 1. Depois de configurado os projetos:
     1. Abra a pasta _**"pi-api"**_ em um terminal, pode ser **cmd.exe** ou qualquer outro, e execute o comando **"npm install"**. 
     1. Repita o passo para _**"pi-front"**_.
+
+Obs.: O banco de dados PostgreSQL, está hospedado na plataforma Neon.tech, a aplicação já possuí toda a configuração necessária para integração, sem a necessidade de instalação local.
 
 ## Utilizando a aplicação
 
