@@ -7,8 +7,8 @@ export class Solicitacoes {
 
     try {
       await database.create({
-        usuarioId: solicitacao.usuarioId,
-        tipoServico: solicitacao.tipoServico,
+        usuarioId: solicitacao.usuario_id,
+        tipoServico: solicitacao.tipo_servico,
         endereco: solicitacao.endereco,
         cep: solicitacao.cep,
         status: solicitacao.status
