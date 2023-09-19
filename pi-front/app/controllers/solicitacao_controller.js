@@ -13,7 +13,7 @@ var SolicitacaoController = {
     
   },
   concluido: function (req, res, next) {   
-    res.render("solicitacao/concluido", { title: "Formulario Enviado" }); 
+    res.render("solicitacao/concluido", { id : req.params.id }); 
   },  
   enviar: function (req, res, next) {
     var solicitacao = new Solicitacao();
@@ -21,13 +21,13 @@ var SolicitacaoController = {
     solicitacao.tipo_servico = req.body.tipo_servico; 
     solicitacao.endereco = req.body.endereco;
     solicitacao.cep = req.body.cep;
-    solicitacao.status = "";
+    solicitacao.status = "pendentes";
 
     solicitacao.salvar(function(retorno) {
       if (retorno.erro) {
         res.send(retorno.mensagem);
       } else {
-        res.send();
+        res.send(retorno.mensagem);
       }
     });    
   }, 
