@@ -19,8 +19,9 @@ router.get('/logout',  LoginController.deslogar);
 router.get('/cadastro',  CadastroController.index);
 
 /* Rotas Solicitação page. */
-router.get('/solicitar',  SolicitacaoController.index);
-router.post('/solicitar/enviar',  SolicitacaoController.enviar);
+router.get('/solicitar', LoginUserMiddleware, SolicitacaoController.index);
+router.get('/solicitacao/concluido', LoginUserMiddleware, SolicitacaoController.concluido);
+router.post('/solicitar/enviar', LoginUserMiddleware, SolicitacaoController.enviar);
 
 /* Rotas Usuarios */
 router.get('/usuarios', LoginUserMiddleware, UsuariosController.index);

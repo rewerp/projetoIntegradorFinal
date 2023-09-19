@@ -63,14 +63,24 @@
       <div class="row">
         <div id="solPendentes" class="col m-3 caixa">
           <h2>Solicitacoes Pendentes:</h2>
-          <p>#151502</p>
-          <p>#171526</p>
+          <% for(var i = 0; i < usuario.solicitacoes.length; i++){ 
+            var solicitacao = usuario.solicitacoes[i];
+            if(solicitacao.status == "pendente"){           
+          %>
+            <p>#<%= solicitacao.id %></p>
+          <% } else { }}%> 
         </div>     
       </div>
       <div class="row">
         <div id="solConcluidas" class="col m-3 caixa">
           <h2>Solicitacoes Concluidas:</h2>
-          <p>#153030</p>          
+          <% for(var i = 0; i < usuario.solicitacoes.length; i++){ 
+            var solicitacao = usuario.solicitacoes[i];
+            if(solicitacao.status == "concluidas"){           
+          %>
+            <p>#<%= solicitacao.id %></p>
+          <% } else { }}%> 
+          <!-- <p>#153030</p>           -->
         </div>     
       </div>
     </div>
