@@ -13,9 +13,14 @@ export class SolicitacoesDatabase {
 
   async create(solicitacao) {
     const { usuarioId, tipoServico, endereco, cep, status } = solicitacao;
-
+    let detalhes
+    
     await sql`insert into solicitacoes (usuario_id, tipo_servico, endereco, cep, status) 
               values (${usuarioId}, ${tipoServico}, ${endereco}, ${cep}, ${status})`;
+
+    detalhes = await sql`select id from solicitacoes order by id desc limit 1`;
+
+    return detalhes[0];
   };
 
   async update(id, solicitacao) {

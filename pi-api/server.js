@@ -25,5 +25,5 @@ server.put('/solicitacoes/:id', (request, response) => { solicitacoes.solicitaco
 server.delete('/solicitacoes/:id', (request, response) => { solicitacoes.solicitacoesDelete(request, response); return response; });
 
 server.listen({
-  port: 3333
+  port: 3000
 });

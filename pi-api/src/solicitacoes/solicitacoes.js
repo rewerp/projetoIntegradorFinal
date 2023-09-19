@@ -6,7 +6,7 @@ export class Solicitacoes {
     const solicitacao = request.body;
 
     try {
-      await database.create({
+      const detalhes = await database.create({
         usuarioId: solicitacao.usuarioId,
         tipoServico: solicitacao.tipoServico,
         endereco: solicitacao.endereco,
@@ -14,7 +14,7 @@ export class Solicitacoes {
         status: solicitacao.status
       });
 
-      return response.status(201).send({ mensagem: "Solicitação cadastrada com sucesso." });
+      return response.status(201).send({ mensagem: "Solicitação cadastrada com sucesso.", detalhes });
     } catch (error) {
       const erroJSON = {
         mensagem: "Ocorreu um erro ao cadastrar a solicitação.",
