@@ -17,14 +17,15 @@ Base.prototype.salvar = function (callback) {
         }, function (error, response, body) {
             if (response.statusCode == 201) {
                 callback({
-                    erro: false
+                    erro: false,
+                    mensagem: response.body.detalhes
                 });
             }
             else {
-                var json = JSON.parse(response.body);
+                var json = response.body;
                 callback({
                     erro: true,
-                    mensagem: json.erro
+                    mensagem: json.mensagem
                 });
             }
         });
@@ -67,10 +68,10 @@ Base.prototype.autenticar = function (callback) {
             });
         }
         else {
-            var json = JSON.parse(response.body);
+            var json = response.body;
             callback({
                 erro: true,
-                mensagem: json.erro
+                mensagem: json.mensagem
             });
         }
     }

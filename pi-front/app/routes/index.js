@@ -20,7 +20,7 @@ router.get('/cadastro',  CadastroController.index);
 
 /* Rotas Solicitação page. */
 router.get('/solicitar', LoginUserMiddleware, SolicitacaoController.index);
-router.get('/solicitacao/concluido', LoginUserMiddleware, SolicitacaoController.concluido);
+router.get('/solicitacao/concluido/:id', LoginUserMiddleware, SolicitacaoController.concluido);
 router.post('/solicitar/enviar', LoginUserMiddleware, SolicitacaoController.enviar);
 
 /* Rotas Usuarios */
