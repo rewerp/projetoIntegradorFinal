@@ -1,3 +1,4 @@
+const Solicitacao = require("../models/solicitacao");
 var Usuario = require("../models/usuario");
 
 var UsuariosController = {
@@ -6,11 +7,21 @@ var UsuariosController = {
       if (usuario.erro !== undefined) {
         res.redirect("/login");
       } else {       
-        usuario.data_nascimento = usuario.data_nascimento.split("T")[0]
-        res.render("usuarios/index", { 
-          title: "trazer os dados da API",
-          usuario: usuario 
-        });
+        usuario.data_nascimento = usuario.data_nascimento.split("T")[0];
+
+        Solicitacao.todos(function (solicitacoes) {
+          usuario.solicitacoes = [];
+          solicitacoes.forEach(data => {            
+            if(data.usuario_id == usuario.id){              
+              usuario.solicitacoes.push(data);
+            }        
+          });  
+          
+          res.render("usuarios/index", { 
+            title: "trazer os dados da API",
+            usuario: usuario 
+          });
+        });        
       }  
     });
   },
