@@ -11,10 +11,10 @@ var Usuario = function (usuario) {
     this.endereco = usuario.endereco; 
     this.numero = usuario.numero;
     this.cep = usuario.cep;
-    this.ddd = usuario.ddd;
-    this.celular = usuario.celular; 
+    this.telefone = usuario.ddd + usuario.celular; 
     this.email = usuario.email;
     this.senha = usuario.senha;
+    this.cidade = usuario.cidade;
 
   } else {
     this.id = 0;
@@ -24,10 +24,10 @@ var Usuario = function (usuario) {
     this.endereco = ""; 
     this.numero = "";
     this.cep = "";
-    this.ddd = 0;
-    this.celular = ""; 
+    this.telefone = ""; 
     this.email = "";
     this.senha = "";
+    this.cidade = "";
   }
 };
 

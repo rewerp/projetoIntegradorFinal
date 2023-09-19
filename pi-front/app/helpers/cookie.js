@@ -18,3 +18,4 @@ module.exports = {
     response.cookie(key, "", { maxAge: -1, httpOnly: true });
   },
 };
+

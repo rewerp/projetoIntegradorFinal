@@ -15,8 +15,9 @@
             <div class="col-6">
               <img src="/img/fotoPerfil.png" alt=""></img>
             </div>
+            <input type="hidden" id="id" value="<%= usuario.id %>" >
             <div class="col-6" style="display: flex; align-content: center;">
-              <h2 id="nome">Lucas Silva</h2>
+              <h2 id="nome"> <%= usuario.nome %></h2>
               <a onclick="editarPerfil()">
                 <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
               </a>            
@@ -31,7 +32,7 @@
             </a>            
           </div>
           <span>
-            <span class="mt-3" id="rua">Rua abecede</span>, <span id="numero">50</span> <span id="cep">(04591-598)</span> - <span id="cidade">São Paulo - SP</span>
+            <span class="mt-3" id="rua"><%= usuario.endereco %></span>, <span id="numero"><%= usuario.numero %></span> <span id="cep"><%= usuario.cep %></span> - <span id="cidade"><%= usuario.cidade %></span>
           </span>                    
         </div>
       </div>
@@ -44,16 +45,16 @@
             </a>            
           </div> 
           <div>
-            <span>Idade:</span><span id="idade">29</span>   
+            <p>Idade:</p><span id="idade"><%= usuario.data_nascimento %></span>   
           </div> 
           <div>
-            <span>CPF:</span><span id="cpf">518.869.058-71</span>    
+            <p>CPF:</p><span id="cpf"><%= usuario.cpf %></span>    
           </div>  
           <div>
-            <span>Celular:</span><span id="celular">(11) 98888-8888</span>   
+            <p>Celular:</p><span id="celular"><%= usuario.telefone %></span>   
           </div>   
           <div>
-            <span>Email:</span><span id="email">lucas.silva@email.com</span>
+            <p>Email:</p><span id="email"><%= usuario.email %></span>
           </div>    
         </div>     
       </div>
@@ -87,14 +88,14 @@
     <div class="modal-conteudo">
       <div class="">
         <label for="">Nome Atual: </label>
-        <input type="text" class="input" name="nomeAtual" id="nomeAtual" placeholder="">
+        <input type="text" class="input" name="nomeAtual" id="nomeAtual" placeholder="" >
       </div>
       <div class="">
         <label for="">Novo nome: </label>
-        <input type="email" class="input" name="nome" placeholder="Preencher...">
+        <input type="email" class="input" name="nome" placeholder="Preencher..." id="nome">
       </div>
       <div class="botao">
-        <button type="button" class="btn-alterar">ALTERAR</button>
+        <button type="button" class="btn-alterar" onclick="alterarPerfil()">ALTERAR</button>
         <button type="button" class="btn-cancelar" onclick="closePerfil()">CANCELAR</button>  
       </div> 
     </div>   
@@ -132,24 +133,24 @@
         <div class="col">
           <div class="">
             <label for="">Nova Data de Nascimento: </label>
-            <input type="text" class="input" name="dataNascimento" placeholder="Preencher...">
+            <input type="text" class="input" name="dataNascimento" placeholder="Preencher..." id="idade">
           </div>
           <div class="">
             <label for="">Novo CPF: </label>
-            <input type="text" class="input" name="cpf" placeholder="Preencher...">
+            <input type="text" class="input" name="cpf" placeholder="Preencher..." id="cpf">
           </div>
           <div class="">
             <label for="">Novo Celular: </label>
-            <input type="text" class="input" name="celular" placeholder="Preencher...">
+            <input type="text" class="input" name="celular" placeholder="Preencher..." id="celular">
           </div>
           <div class="">
             <label for="">Novo E-mail: </label>
-            <input type="email" class="input" name="email" placeholder="Preencher...">
+            <input type="email" class="input" name="email" placeholder="Preencher..." id="email">
           </div>
         </div>
       </div>
       <div class="botao">
-        <button type="button" class="btn-alterar">ALTERAR</button>
+        <button type="button" class="btn-alterar" onclick="alterarDadosPessoais()">ALTERAR</button>
         <button type="button" class="btn-cancelar" onclick="closeDadosPessoais()">CANCELAR</button>  
       </div> 
     </div>   
@@ -179,24 +180,32 @@
             <label for="">CEP atual: </label>
             <input type="text" class="input" name="cepAtual" id="cepAtual" placeholder="">
           </div>          
+          <div class="">
+            <label for="">Cidade atual: </label>
+            <input type="text" class="input" name="cidadeAtual" id="cidadeAtual" placeholder="">
+          </div>          
         </div>
         <div class="col">
           <div class="">
             <label for="">Novo Endereco : </label>
-            <input type="text" class="input" name="endereco" placeholder="Preeencher...">
+            <input type="text" class="input" name="endereco" placeholder="Preeencher..." id="rua">
           </div>
           <div class="">
             <label for="">Novo Numero : </label>
-            <input type="text" class="input" name="numero" placeholder="Preeencher...">
+            <input type="text" class="input" name="numero" placeholder="Preeencher..." id="numero">
           </div>
           <div class="">
             <label for="">Novo CEP : </label>
-            <input type="text" class="input" name="cep" placeholder="Preeencher...">
+            <input type="text" class="input" name="cep" placeholder="Preeencher..." id="cep">
+          </div>          
+          <div class="">
+            <label for="">Nova Cidade : </label>
+            <input type="text" class="input" name="cidade" placeholder="Preeencher..." id="cidade">
           </div>          
         </div>
       </div>
       <div class="botao">
-        <button type="button" class="btn-alterar">ALTERAR</button>
+        <button type="button" class="btn-alterar" onclick="alterarEndereco()">ALTERAR</button>
         <button type="button" class="btn-cancelar" onclick="closeEndereco()">CANCELAR</button>  
       </div> 
     </div>   

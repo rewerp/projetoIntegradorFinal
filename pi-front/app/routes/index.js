@@ -23,12 +23,11 @@ router.get('/solicitar',  SolicitacaoController.index);
 router.post('/solicitar/enviar',  SolicitacaoController.enviar);
 
 /* Rotas Usuarios */
-//router.get('/usuarios', LoginUserMiddleware, UsuariosController.index);
-router.get('/usuarios',  UsuariosController.index);
+router.get('/usuarios', LoginUserMiddleware, UsuariosController.index);
 router.get('/usuarios/novo', LoginUserMiddleware, UsuariosController.novo);
-router.post('/usuarios/cadastrar', LoginUserMiddleware, UsuariosController.cadastrar);
-//router.get('/usuarios/:id/editar', LoginUserMiddleware, UsuariosController.editar);
-router.get('/usuarios/editar',  UsuariosController.editar);
+//router.post('/usuarios/cadastrar', LoginUserMiddleware, UsuariosController.cadastrar);
+router.post('/usuarios/cadastrar', UsuariosController.cadastrar);
+router.get('/usuarios/:id/editar', LoginUserMiddleware, UsuariosController.editar);
 router.post('/usuarios/:id/atualizar', LoginUserMiddleware, UsuariosController.atualizar);
 router.get('/usuarios/:id/excluir', LoginUserMiddleware, UsuariosController.excluir);
 

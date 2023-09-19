@@ -22,9 +22,17 @@ footer h2{
   display: flex;
   justify-content: flex-end;
   gap: 20px;
+  margin: 10px;
+  height: 40px;
 }
+
 .icons a{
-  font-size: 20px;
-  color: #fff;
-  margin-bottom: -20px;
+  font-size: 20px;  
+  color: white;
+  border-radius: 10px;
+}
+
+.icons a:hover{
+  color: white;
+  border: 1px solid white;
 }

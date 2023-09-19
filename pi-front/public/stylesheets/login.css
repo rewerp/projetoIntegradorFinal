@@ -42,11 +42,19 @@
     width: 50%;
 }
 
+.form-box div{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-content: center;
+}
+
 .content-box .form-box .ul {
     display: flex;
     align-items: center;
     justify-content: center;
 }
+
 
 .content-box .form-box .ul li {
     list-style: none;
@@ -168,7 +176,7 @@
     font-size: 14px;
     cursor: pointer;
     display: flex;
-    justify-content: end;
+    align-content: end;
 }
 
 .content-box .form-box .remember a{
@@ -192,16 +200,21 @@
 	margin-top: 16px;
 	margin-bottom: 15px;
     text-decoration: none;
-    align-content: center;
-    align-items: end;
+
+    display: flex;
+    justify-content: center;
 }
 
 .quem-somos{
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
 	width: 507px;
-	height: 245px;
-	margin-left: 27px;
-	padding: 0px 45px;
-	background-color: #454545;
+    height: 245px;
+    padding: 0px 45px;
+    background-color: #454545;
+    margin-bottom: 96px;
+    margin-left: 27px;
 }
 
 .quem-somos button{

@@ -29,43 +29,13 @@
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
         crossorigin="anonymous"></script>
 
+    <script src="/javascripts/usuarios.js" type="text/javascript"></script>
+
     <script>
         $('a.menu-link').click(function () {
             $('.menu-link').removeClass('active');
             $(this).addClass('active');
-        });
-
-        function editarPerfil(){
-            $("#modal-perfil").show();
-            $("#modal-perfil #nomeAtual").val($("#nome").text());
-        }
-
-        function closePerfil(){
-            $("#modal-perfil").hide();
-        }
-
-        function editarDadosPessoais(){
-            $("#modal-dados-pessoais").show();
-            $("#modal-dados-pessoais #idadeAtual").val($("#idade").text());
-            $("#modal-dados-pessoais #cpfAtual").val($("#cpf").text());
-            $("#modal-dados-pessoais #celularAtual").val($("#celular").text());
-            $("#modal-dados-pessoais #emailAtual").val($("#email").text());            
-        }
-
-        function closeDadosPessoais(){
-            $("#modal-dados-pessoais").hide();
-        }
-
-        function editarEndereco(){
-            $("#modal-endereco").show();
-            $("#modal-endereco #enderecoAtual").val($("#rua").text());
-            $("#modal-endereco #numeroAtual").val($("#numero").text());
-            $("#modal-endereco #cepAtual").val($("#cep").text());
-        }
-
-        function closeEndereco(){
-            $("#modal-endereco").hide();
-        }
+        });        
     </script>
 </body>
 </html>

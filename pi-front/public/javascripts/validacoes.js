@@ -3,3 +3,6 @@ var excluir = function(id, url){
         window.location = url;
     }
 }
+
+
+
